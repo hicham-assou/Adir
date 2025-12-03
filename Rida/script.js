@@ -7,50 +7,167 @@ const CONFIG = {
 	}
 };
 
+// Helper function to convert Google Drive share link to embed link
+function convertDriveLink(url) {
+	if (url.includes('drive.google.com')) {
+		const fileIdMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+		if (fileIdMatch) {
+			return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`;
+		}
+	}
+	return url;
+}
+
 // Portfolio Data - Updated for client-based structure
 const clientProjects = [
 	{
 		id: 1,
-		name: { fr: 'Projet Luxuria', en: 'Luxuria Project' },
-		description: { fr: 'Campagne publicitaire pour la marque de luxe Luxuria, axée sur l\'élégance et l\'exclusivité.', en: 'Advertising campaign for the luxury brand Luxuria, focused on elegance and exclusivity.' },
-		thumbnail: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80',
+		name: { fr: 'StreetKap', en: 'StreetKap' },
+		description: { fr: 'Fast-food américain à Bruxelles spécialisé dans la street food "loaded" : frites chargées, buns briochés et Kapsalons revisités.', en: 'American fast food in Brussels specializing in "loaded" street food: loaded fries, brioche buns, and revisited Kapsalons' },
+		thumbnail: 'images/Miniature_StreetKap.png',
 		gallery: [
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80', alt: 'Luxuria product shot 1' },
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80', alt: 'Luxuria campaign visual 1' },
-			{ type: 'video', src: 'videos/video_test.mp4', alt: 'Video test', poster: './images/Photo_de_profil_sisi_first.jpg' }
+			{ 
+				type: 'video-drive', 
+				src: 'https://drive.google.com/file/d/1xuZAtXCtc1D5r1Ynfr0p0jtu4tnM4p26/view?usp=sharing',
+				alt: 'Vidéo 4.8',
+				poster: 'images/Miniature_1+1.png'
+			},
+			{ 
+				type: 'video-drive', 
+				src: 'https://drive.google.com/file/d/1xuZAtXCtc1D5r1Ynfr0p0jtu4tnM4p26/view?usp=sharing',
+				alt: 'Vidéo like Gta',
+				poster: 'images/Miniature_1+1.png'
+			},
+			{ 
+				type: 'video-drive', 
+				src: 'https://drive.google.com/file/d/1xuZAtXCtc1D5r1Ynfr0p0jtu4tnM4p26/view?usp=sharing',
+				alt: 'Vidéo StreetKap',
+				poster: 'images/Miniature_1+1.png'
+			}
 		]
 	},
 	{
 		id: 2,
-		name: { fr: 'Mariage Céleste', en: 'Celestial Wedding' },
-		description: { fr: 'Immortalisation d\'un mariage féerique dans un cadre enchanteur, capturant chaque émotion.', en: 'Immortalization of a magical wedding in an enchanting setting, capturing every emotion.' },
-		thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+		name: { fr: 'Pales', en: 'Pales' },
+		description: { fr: 'Pales est une marque belge de boissons gazeuses artisanales et éthiques aux saveurs originales. Une partie des bénéfices est reversée pour soutenir des causes humanitaires.', en: 'Pales is a Belgian brand of ethical, craft soft drinks with original flavors. A portion of the profits is donated to support humanitarian causes.' },
+		thumbnail: 'images/PalesMiniature.png',
 		gallery: [
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80', alt: 'Wedding ceremony' },
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80', alt: 'Couple portrait' },
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80', alt: 'Wedding details' }
+			{ type: 'image', src: 'projets/pales/pales-1.jpg', alt: 'Photos Pales' },
+			{ type: 'image', src: 'projets/pales/pales-2.jpg', alt: '' },
+			{ type: 'image', src: 'projets/pales/pales-3.jpg', alt: '' },
+			{ 
+				type: 'video-drive', 
+				src: 'https://drive.google.com/file/d/folders/1apVEYVW8pW76z7Pp4uDzGgPPuwG14QDC',
+				alt: 'AfterMovie',
+				poster: 'images/AfterMovieMiniaturePales.png'
+			},
+			{ 
+				type: 'video-drive', 
+				src: 'https://drive.google.com/drive/folders/1apVEYVW8pW76z7Pp4uDzGgPPuwG14QDC',
+				alt: 'Micro Troittoir',
+				poster: 'images/PalesMT.png'
+			}
 		]
 	},
 	{
 		id: 3,
-		name: { fr: 'Voyage Aventure', en: 'Adventure Travel' },
-		description: { fr: 'Reportage photo et vidéo d\'une expédition à travers des paysages sauvages et préservés.', en: 'Photo and video reportage of an expedition through wild and preserved landscapes.' },
-		thumbnail: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80',
+		name: { fr: 'Molenbeek4Brussels', en: 'Molenbeek4Brussels' },
+		description: { fr: 'Une initiative ambitieuse soutenant la candidature de Molenbeek comme Capitale européenne de la Culture en 2030, axée sur la diversité et la créativité urbaine.', en: 'An ambitious initiative supporting Molenbeek bid as European Capital of Culture in 2030, focusing on diversity and urban creativity.' },
+		thumbnail: 'images/MiniatureMB.png',
 		gallery: [
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&q=80', alt: 'Mountain landscape' },
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80', alt: 'Forest scene' },
-			{ type: 'video', src: 'https://www.w3schools.com/html/mov_bbb.mp4', alt: 'Travel montage' }
+			{ type: 'video', src: 'projets/Molenbeek4Brussels/RWDM_VS_SERAING.mp4', alt: 'AfterMovie d\'un match de foot', poster: './images/MiniaMBrwdm.png' },
+			{ type: 'video', src: 'projets/Molenbeek4Brussels/Vidéo_retour_1_Banquet.mp4', alt: 'Video informative', poster: './images/MiniatureBanquet.png' }
 		]
 	},
 	{
 		id: 4,
-		name: { fr: 'Portrait Studio', en: 'Studio Portrait' },
-		description: { fr: 'Séances photo en studio mettant en valeur des portraits artistiques et professionnels.', en: 'Studio photo sessions highlighting artistic and professional portraits.' },
-		thumbnail: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80',
+		name: { fr: 'Noobs Tournament', en: 'Studio Portrait' },
+		description: { fr: 'Ceci n\'est pas de l\'e-sport. C\'est le Noobs Tournament : vos créateurs préférés, du gameplay approximatif et une ambiance survoltée. 100% divertissement, 0% tryhard.', en: 'This is not esports. It\'s the Noobs Tournament: your favorite creators, questionable gameplay, and electric vibes. 100% entertainment, 0% tryhard.' },
+		thumbnail: 'images/MiniatureNTsmash.png',
 		gallery: [
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80', alt: 'Studio portrait 1' },
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80', alt: 'Studio portrait 2' },
-			{ type: 'image', src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=1200&q=80', alt: 'Abstract portrait' }
+			{ type: 'image', src: 'projets/Noobs_Tournament/NoobsSmash (1).jpg', alt: 'Photos du noobs' },
+			{ type: 'image', src: 'projets/Noobs_Tournament/NoobsSmash (2).jpg', alt: 'Photos du noobs' },
+			{ type: 'image', src: 'projets/Noobs_Tournament/NoobsSmash (3).jpg', alt: 'Photos du noobs' },
+			{ type: 'image', src: 'projets/Noobs_Tournament/NoobsSmash (4).jpg', alt: 'Photos du noobs' },
+			{ type: 'image', src: 'projets/Noobs_Tournament/NoobsSmash (5).jpg', alt: 'Photos du noobs' },
+			{ type: 'image', src: 'projets/Noobs_Tournament/NoobsSmash (6).jpg', alt: 'Photos du noobs' }
+		]
+	},
+	{
+		id: 5,
+		name: { fr: 'L\'Agora', en: 'L\'Agora' },
+		description: { fr: 'La voix du football de rue bruxellois. De l\'asphalte des agoras aux talents de demain, nous célébrons la culture foot authentique de la capitale.', en: 'The voice of Brussels street football. From the asphalt of the agoras to tomorrow\'s talents, we celebrate the capital\'s authentic football culture.' },
+		thumbnail: 'images/AgoraMinia.png',
+		gallery: [
+			{ type: 'video', src: 'projets/LAgora/CityVsRéal.mp4', alt: 'Vidéo du match City Vs Réal', poster: './images/miniareal.png' },
+			{ type: 'video', src: 'projets/LAgora/Version Fini Agora X Sorare Vlog.mp4', alt: 'première journée de pro league', poster: './images/MiniaMatch.png' }
+		]
+	},
+	{
+		id: 6,
+		name: { fr: 'SummerBreak', en: 'SummerBreak' },
+		description: { fr: 'Le clap de fin officiel de tes vacances. Musique, vibes estivales et good times pour clôturer la saison en beauté.', en: 'The official closing act of your holidays. Music, summer vibes, and good times to end the season with a bang.' },
+		thumbnail: 'images/SummerBreak.png',
+		gallery: [
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (1).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (2).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (3).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (4).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (5).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (6).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (7).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (8).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (9).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (10).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (11).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (12).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (13).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (14).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (15).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (16).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (17).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (18).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (19).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (20).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (21).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (22).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (23).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (24).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (25).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (26).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (27).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (28).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (29).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (30).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (31).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (32).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (33).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (34).jpg', alt: 'Photos du SummerBreak' },
+			{ type: 'image', src: 'projets/SummerBreakYume/Summer (35).jpg', alt: 'Photos du SummerBreak' }
+		]
+	},
+	{
+		id: 7,
+		name: { fr: 'Yume Squad', en: 'Yume Squad' },
+		description: { fr: 'Le collectif bruxellois de créateurs de contenu le plus déjanté, connu pour ses concepts sur TikTok (Petit Bac, Imposteur) et ses événements réunissant la scène belge', en: 'The craziest Brussels-based content creator collective, known for their TikTok concepts and events bringing the Belgian scene together.' },
+		thumbnail: 'images/YumeSquadMinia.png',
+		gallery: [
+			{ type: 'video', src: 'projets/YumeSquad/TierList meilleurs arabes.mp4', alt: 'vidéo divertissement', poster: './images/TierListMinia.png' }
+		]
+	},
+	{
+		id: 8,
+		name: { fr: 'Moto', en: 'Motor' },
+		description: { fr: 'Des photos prises par passion de moto', en: 'Photos taken out of a passion for motorcycles.' },
+		thumbnail: 'projets/AfricaTwin/AfricaTwin (1).jpg',
+		gallery: [
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (1).jpg', alt: 'Moto' },
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (2).jpg', alt: 'Moto' },
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (3).jpg', alt: 'Moto' },
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (4).jpg', alt: 'Moto' },
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (5).jpg', alt: 'Moto' },
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (6).jpg', alt: 'Moto' },
+			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (7).jpg', alt: 'Moto' },
 		]
 	}
 ];
@@ -313,20 +430,35 @@ function initProjectModal() {
 function openProjectModal(index) {
 	const modal = document.getElementById('projectModal');
 	const project = clientProjects[index];
+	currentProjectIndex = index; // Store current project
+	currentProjectGallery = project.gallery; // Store current project gallery
+	
 	document.getElementById('projectModalTitle').textContent = project.name[currentLang];
 	document.getElementById('projectModalDescription').textContent = project.description[currentLang];
 	
-	const galleryHtml = project.gallery.map((item) => {
-		const globalIndex = galleryItemsMap.get(item.src);
-		if (item.type === 'video') {
-			// Utilise le poster personnalisé si défini, sinon utilise le thumbnail du projet
+	const galleryHtml = project.gallery.map((item, itemIndex) => {
+		if (item.type === 'video-drive') {
+			// Vidéo Google Drive - afficher avec miniature personnalisée
+			const posterImage = item.poster || project.thumbnail;
+			return `
+				<div class="project-gallery-item" onclick="openLightbox(${itemIndex})">
+					<img src="${posterImage}" alt="${item.alt || project.name[currentLang]}" loading="lazy">
+					<div class="video-play-overlay">
+						<svg width="60" height="60" viewBox="0 0 24 24" fill="white" style="opacity: 0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));">
+							<path d="M8 5v14l11-7z"/>
+						</svg>
+					</div>
+				</div>
+			`;
+		} else if (item.type === 'video') {
+			// Vidéo locale
 			const posterImage = item.poster || 'images/video_poster.jpg';
 			return `
-				<div class="project-gallery-item" onclick="openLightbox(${globalIndex})">
-					<video src="${item.src}" poster="${posterImage}" preload="metadata" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;">
+				<div class="project-gallery-item" onclick="openLightbox(${itemIndex})">
+					<video src="${item.src}" poster="${posterImage}" preload="metadata">
 						Votre navigateur ne supporte pas la balise vidéo.
 					</video>
-					<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
+					<div class="video-play-overlay">
 						<svg width="60" height="60" viewBox="0 0 24 24" fill="white" style="opacity: 0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));">
 							<path d="M8 5v14l11-7z"/>
 						</svg>
@@ -335,7 +467,7 @@ function openProjectModal(index) {
 			`;
 		} else {
 			return `
-				<div class="project-gallery-item" onclick="openLightbox(${globalIndex})">
+				<div class="project-gallery-item" onclick="openLightbox(${itemIndex})">
 					<img src="${item.src}" alt="${item.alt || project.name[currentLang]}" loading="lazy">
 				</div>
 			`;
@@ -357,6 +489,7 @@ function closeProjectModal() {
 function openLightbox(index) {
 	lightboxIndex = index;
 	updateLightbox();
+	updateLightboxButtons(); // Mettre à jour les boutons
 	document.getElementById('lightbox').classList.add('active');
 	document.body.style.overflow = 'hidden';
 }
@@ -364,26 +497,91 @@ function openLightbox(index) {
 function closeLightbox() {
 	document.getElementById('lightbox').classList.remove('active');
 	document.body.style.overflow = 'auto';
+	
+	// Nettoyer toutes les vidéos
 	const video = document.getElementById('lightboxVideo');
 	if (video) video.pause();
+	
+	// Nettoyer l'iframe si présent
+	const iframe = document.querySelector('#lightbox iframe');
+	if (iframe) iframe.src = '';
 }
 
 function navigateLightbox(dir) {
-	lightboxIndex = (lightboxIndex + dir + allGalleryItems.length) % allGalleryItems.length;
+	lightboxIndex = lightboxIndex + dir;
+	
+	// Limiter la navigation au projet actuel
+	if (lightboxIndex < 0) {
+		lightboxIndex = 0; // Ne pas aller avant le premier item
+	} else if (lightboxIndex >= currentProjectGallery.length) {
+		lightboxIndex = currentProjectGallery.length - 1; // Ne pas aller après le dernier item
+	}
+	
 	updateLightbox();
+	updateLightboxButtons();
+}
+
+function updateLightboxButtons() {
+	const prevBtn = document.querySelector('.lightbox-prev');
+	const nextBtn = document.querySelector('.lightbox-next');
+	
+	// Cacher le bouton précédent si on est au début
+	if (lightboxIndex === 0) {
+		prevBtn.style.opacity = '0.3';
+		prevBtn.style.cursor = 'not-allowed';
+	} else {
+		prevBtn.style.opacity = '1';
+		prevBtn.style.cursor = 'pointer';
+	}
+	
+	// Cacher le bouton suivant si on est à la fin
+	if (lightboxIndex === currentProjectGallery.length - 1) {
+		nextBtn.style.opacity = '0.3';
+		nextBtn.style.cursor = 'not-allowed';
+	} else {
+		nextBtn.style.opacity = '1';
+		nextBtn.style.cursor = 'pointer';
+	}
 }
 
 function updateLightbox() {
-	const item = allGalleryItems[lightboxIndex];
+	const item = currentProjectGallery[lightboxIndex]; // Utiliser la galerie du projet actuel
 	const img = document.getElementById('lightboxImg');
 	const video = document.getElementById('lightboxVideo');
 	
-	if (item.type === 'video') {
+	if (item.type === 'video-drive') {
+		// Vidéo Google Drive - utiliser iframe
+		img.style.display = 'none';
+		video.style.display = 'none';
+		
+		// Vérifier s'il y a déjà un iframe, sinon le créer
+		let iframe = document.querySelector('#lightbox iframe');
+		if (!iframe) {
+			iframe = document.createElement('iframe');
+			iframe.style.width = '100%';
+			iframe.style.height = '80vh';
+			iframe.style.border = 'none';
+			iframe.style.borderRadius = '8px';
+			iframe.setAttribute('allowfullscreen', 'true');
+			iframe.setAttribute('allow', 'autoplay');
+			document.querySelector('.lightbox-content').appendChild(iframe);
+		}
+		iframe.style.display = 'block';
+		iframe.src = convertDriveLink(item.src);
+	} else if (item.type === 'video') {
+		// Vidéo locale
+		const iframe = document.querySelector('#lightbox iframe');
+		if (iframe) iframe.style.display = 'none';
+		
 		img.style.display = 'none';
 		video.style.display = 'block';
 		video.src = item.src;
 		video.play().catch(e => console.log("Autoplay prevented: ", e));
 	} else {
+		// Image
+		const iframe = document.querySelector('#lightbox iframe');
+		if (iframe) iframe.style.display = 'none';
+		
 		video.style.display = 'none';
 		video.pause();
 		img.style.display = 'block';
@@ -391,7 +589,6 @@ function updateLightbox() {
 		img.alt = item.alt || 'Image';
 	}
 }
-
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
 	if (!document.getElementById('lightbox').classList.contains('active')) return;
