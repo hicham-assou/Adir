@@ -30,17 +30,17 @@ const clientProjects = [
 				type: 'video-drive', 
 				src: 'https://drive.google.com/file/d/1xuZAtXCtc1D5r1Ynfr0p0jtu4tnM4p26/view?usp=sharing',
 				alt: 'Vidéo 4.8',
-				poster: 'images/Miniature_1+1.png'
+				poster: 'images/Miniature.png'
 			},
 			{ 
 				type: 'video-drive', 
-				src: 'https://drive.google.com/file/d/1xuZAtXCtc1D5r1Ynfr0p0jtu4tnM4p26/view?usp=sharing',
+				src: 'https://drive.google.com/file/d/1BRscRDsHRaCZyamCfLBgQ03HnW4gDfox/view?usp=drive_link',
 				alt: 'Vidéo like Gta',
-				poster: 'images/Miniature_1+1.png'
+				poster: 'images/miniature_GTA.png'
 			},
 			{ 
 				type: 'video-drive', 
-				src: 'https://drive.google.com/file/d/1xuZAtXCtc1D5r1Ynfr0p0jtu4tnM4p26/view?usp=sharing',
+				src: 'https://drive.google.com/file/d/1kvN_tbwKlegy4Rj4c9ESuImgz7e_4BeD/view?usp=drive_link',
 				alt: 'Vidéo StreetKap',
 				poster: 'images/Miniature_1+1.png'
 			}
@@ -57,13 +57,13 @@ const clientProjects = [
 			{ type: 'image', src: 'projets/pales/pales-3.jpg', alt: '' },
 			{ 
 				type: 'video-drive', 
-				src: 'https://drive.google.com/file/d/folders/1apVEYVW8pW76z7Pp4uDzGgPPuwG14QDC',
+				src: 'https://drive.google.com/file/d/1km4aapsJMCJo8DO5WStromSg3tUkHWhD/view?usp=sharing',
 				alt: 'AfterMovie',
 				poster: 'images/AfterMovieMiniaturePales.png'
 			},
 			{ 
 				type: 'video-drive', 
-				src: 'https://drive.google.com/drive/folders/1apVEYVW8pW76z7Pp4uDzGgPPuwG14QDC',
+				src: 'https://drive.google.com/file/d/1Mk_K4uCeJr2byw2_pkVMS10ej7fW4oSZ/view?usp=drive_link',
 				alt: 'Micro Troittoir',
 				poster: 'images/PalesMT.png'
 			}
@@ -75,8 +75,8 @@ const clientProjects = [
 		description: { fr: 'Une initiative ambitieuse soutenant la candidature de Molenbeek comme Capitale européenne de la Culture en 2030, axée sur la diversité et la créativité urbaine.', en: 'An ambitious initiative supporting Molenbeek bid as European Capital of Culture in 2030, focusing on diversity and urban creativity.' },
 		thumbnail: 'images/MiniatureMB.png',
 		gallery: [
-			{ type: 'video', src: 'projets/Molenbeek4Brussels/RWDM_VS_SERAING.mp4', alt: 'AfterMovie d\'un match de foot', poster: './images/MiniaMBrwdm.png' },
-			{ type: 'video', src: 'projets/Molenbeek4Brussels/Vidéo_retour_1_Banquet.mp4', alt: 'Video informative', poster: './images/MiniatureBanquet.png' }
+			{ type: 'video-drive', src: 'https://drive.google.com/file/d/1HfTSd9IYj3TQrc174HJ_RLs6Ek_RmLQg/view?usp=drive_link', alt: 'AfterMovie d\'un match de foot', poster: './images/MiniaMBrwdm.png' },
+			{ type: 'video-drive', src: 'https://drive.google.com/file/d/1iGsMk-iIIBoN2RVLk5tubpGbHmfaCvep/view?usp=drive_link', alt: 'Video informative', poster: './images/MiniatureBanquet.png' }
 		]
 	},
 	{
@@ -99,8 +99,8 @@ const clientProjects = [
 		description: { fr: 'La voix du football de rue bruxellois. De l\'asphalte des agoras aux talents de demain, nous célébrons la culture foot authentique de la capitale.', en: 'The voice of Brussels street football. From the asphalt of the agoras to tomorrow\'s talents, we celebrate the capital\'s authentic football culture.' },
 		thumbnail: 'images/AgoraMinia.png',
 		gallery: [
-			{ type: 'video', src: 'projets/LAgora/CityVsRéal.mp4', alt: 'Vidéo du match City Vs Réal', poster: './images/miniareal.png' },
-			{ type: 'video', src: 'projets/LAgora/Version Fini Agora X Sorare Vlog.mp4', alt: 'première journée de pro league', poster: './images/MiniaMatch.png' }
+			{ type: 'video-drive', src: 'https://drive.google.com/file/d/1XrC7xEylvEdx2DZPnCyWiJsVQZPtzSNY/view?usp=drive_link', alt: 'Vidéo du match City Vs Réal', poster: './images/miniareal.png' },
+			{ type: 'video-drive', src: 'https://drive.google.com/file/d/1ftPVGdQyDpW6gIW-_YBc_GlK-DaSiZIb/view?usp=drive_link', alt: 'première journée de pro league', poster: './images/MiniaMatch.png' }
 		]
 	},
 	{
@@ -152,7 +152,7 @@ const clientProjects = [
 		description: { fr: 'Le collectif bruxellois de créateurs de contenu le plus déjanté, connu pour ses concepts sur TikTok (Petit Bac, Imposteur) et ses événements réunissant la scène belge', en: 'The craziest Brussels-based content creator collective, known for their TikTok concepts and events bringing the Belgian scene together.' },
 		thumbnail: 'images/YumeSquadMinia.png',
 		gallery: [
-			{ type: 'video', src: 'projets/YumeSquad/TierList meilleurs arabes.mp4', alt: 'vidéo divertissement', poster: './images/TierListMinia.png' }
+			{ type: 'video-drive', src: 'https://drive.google.com/file/d/1VKYFNLp9NBScOZ5Q0jLmZnA90NHWxSwA/view?usp=drive_link', alt: 'vidéo divertissement', poster: './images/TierListMinia.png' }
 		]
 	},
 	{
@@ -169,6 +169,17 @@ const clientProjects = [
 			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (6).jpg', alt: 'Moto' },
 			{ type: 'image', src: 'projets/AfricaTwin/AfricaTwin (7).jpg', alt: 'Moto' },
 		]
+	},
+	{
+		id: 9,
+		name: { fr: 'Sekai Corndog', en: 'Corndogs' },
+		description: { fr: 'Le Corn Dog authentique à Bruxelles. Croustillant à l\'extérieur, fondant à l\'intérieur, 100% Halal', en: 'The authentic Corn Dog in Brussels. Crispy on the outside, melting on the inside, and 100% Halal' },
+		thumbnail: 'images/MiniatureSekai.png',
+		gallery: [
+			{ type: 'image', src: 'projets/Sekai/photomenu.JPG', alt: 'Corndog Menu' },
+			{ type: 'image', src: 'projets/Sekai/El Mordjenne-2.jpg', alt: '' },
+			{ type: 'image', src: 'projets/Sekai/El Mordjenne-3.jpg', alt: '' }
+			]
 	}
 ];
 
@@ -404,9 +415,8 @@ function initPortfolioClients() {
 				<img src="${project.thumbnail}" alt="${project.name[currentLang]}" loading="lazy">
 				<div class="portfolio-client-card-overlay">
 					<h3 class="portfolio-client-title">${project.name[currentLang]}</h3>
-					<span class="portfolio-client-subtitle">${project.description[currentLang].substring(0, 50)}...</span>
+					
 				</div>
-			</div>
 		</article>
 	`).join('');
 

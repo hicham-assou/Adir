@@ -47,7 +47,7 @@ body {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	animation: pulse 1s ease-in-out infinite;
-	font-family: 'Batuphat Script', cursive; /* Changed font */
+	font-family: 'Heavitas', cursive; /* Changed font */
 }
 .preloader-bar {
 	width: 200px;
@@ -108,7 +108,7 @@ body {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	text-decoration: none;
-	font-family: 'Batuphat Script', cursive; /* Changed font */
+	font-family: 'Heavitas', cursive; /* Changed font */
 }
 .nav-menu {
 	display: flex;
@@ -237,7 +237,7 @@ body {
 	background-clip: text;
 	animation: gradientShift 4s ease infinite;
 	text-shadow: 0 0 80px var(--cyan-glow);
-	font-family: 'Batuphat Script', cursive; /* Changed font */
+	font-family: 'Heavitas', cursive; /* Changed font */
 }
 @keyframes gradientShift {
 	0%, 100% { background-position: 0% 50%; }
