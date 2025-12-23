@@ -185,6 +185,7 @@ body {
 	visibility: hidden;
 	transition: all 0.4s var(--transition);
 	z-index: 999;
+	-webkit-overflow-scrolling: touch;
 }
 .mobile-menu.active { opacity: 1; visibility: visible; }
 .mobile-menu .nav-link {
@@ -493,6 +494,7 @@ section { padding: 6rem 2rem; position: relative; }
 	border-radius: 16px;
 	padding: 3rem;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 .project-modal-close {
@@ -710,6 +712,11 @@ section { padding: 6rem 2rem; position: relative; }
 }
 .footer-text span { color: var(--cyan); }
 
+body.modal-open {
+	position: fixed;
+	width: 100%;
+	overflow: hidden;
+}
 /* Responsive */
 @media (max-width: 1024px) {
 	.about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -729,6 +736,21 @@ section { padding: 6rem 2rem; position: relative; }
 	.hero-cta { padding: 0.8rem 2rem; font-size: 0.9rem; }
 	.project-modal-title { font-size: 1.8rem; }
 	.project-modal-description { font-size: 1rem; }
+	.nav.scrolled {
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+	}
+
+	.mobile-menu {
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
+	}
+
+	.lightbox-overlay,
+	.project-modal-overlay {
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+	}
 }
 @media (max-width: 480px) {
 	.portfolio-filters { gap: 0.5rem; }

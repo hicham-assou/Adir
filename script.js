@@ -487,12 +487,12 @@ function openProjectModal(index) {
 	document.getElementById('projectModalGallery').innerHTML = galleryHtml;
 	
 	modal.classList.add('active');
-	document.body.style.overflow = 'hidden';
+	document.body.classList.add('modal-open');
 }
 
 function closeProjectModal() {
 	document.getElementById('projectModal').classList.remove('active');
-	document.body.style.overflow = 'auto';
+	document.body.classList.remove('modal-open');
 }
 
 // Lightbox
@@ -501,12 +501,12 @@ function openLightbox(index) {
 	updateLightbox();
 	updateLightboxButtons(); // Mettre à jour les boutons
 	document.getElementById('lightbox').classList.add('active');
-	document.body.style.overflow = 'hidden';
+	document.body.classList.add('modal-open');
 }
 
 function closeLightbox() {
 	document.getElementById('lightbox').classList.remove('active');
-	document.body.style.overflow = 'auto';
+	document.body.classList.remove('modal-open');
 	
 	// Nettoyer toutes les vidéos
 	const video = document.getElementById('lightboxVideo');
